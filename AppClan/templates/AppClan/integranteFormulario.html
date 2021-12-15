@@ -1,0 +1,38 @@
+{% extends "AppClan/padre.html" %}
+
+
+{% load static %}
+
+        {% block contenido2 %}
+            <h1 class="mb-1">Cargar integrantes</h1>
+        {% endblock %}
+
+        {% block contenido %}
+
+            {% if miFormulario.errors %}
+
+            <p> Lo sentimos mucho, ocurrió un error. </p>
+
+            {% endif %}
+
+           <form action="/AppClan/integranteFormulario" method="POST">{% csrf_token %}
+
+                <div align = "center">
+
+                    <h2> Espacio para registrar los integrantes del clan </h2>
+                    <br>
+
+                    <table>
+
+                    {{ miFormulario.as_table }}
+
+                    </table>
+                    <br>
+
+                    <input type="submit" value="Cargar integrante"> </p>
+
+                </div>
+
+           </form>
+
+        {% endblock %}

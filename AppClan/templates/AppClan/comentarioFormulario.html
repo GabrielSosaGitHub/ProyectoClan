@@ -1,0 +1,30 @@
+{% extends "AppClan/padre.html" %}
+
+
+{% load static %}
+
+        {% block contenido2 %}
+            <h1 class="mb-1">Dejanos tu comentario!</h1>
+        {% endblock %}
+
+        {% block contenido %}
+
+            {% if miFormulario.errors %}
+
+            <p> Lo sentimos mucho, ocurrió un error. </p>
+
+            {% endif %}
+
+           <form action="/AppClan/comentarioFormulario" method="POST">{% csrf_token %}
+
+                <table>
+
+                {{ miFormulario.as_table }}
+
+                </table>
+
+                <input type="submit" value="Comentar"> </p>
+
+           </form>
+
+        {% endblock %}

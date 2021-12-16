@@ -36,13 +36,44 @@ def integranteFormulario(request):
         
             integrante.save() # Este save es el que guarda en la base de datos.
         
-        return render(request, 'AppClan/inicio.html')
+        return render(request, 'AppClan/cargaIntegranteExitosa.html')
 
     else:
 
         miFormulario = IntegranteFormulario()
 
     return render(request, 'AppClan/integranteFormulario.html', {"miFormulario":miFormulario})
+
+def cargaIntegranteExitosa(request):
+    return render(request, "AppClan/cargaIntegranteExitosa.html")
+
+def busquedaIntegrante(request):
+
+    return render(request, 'AppClan/busquedaIntegrante.html')
+
+def resultadoBusquedaIntegrante(request):
+    
+    return render(request, "AppClan/resultadoBusquedaIntegrante.html")
+
+def buscarIntegrante(request):
+      
+    if request.GET["apellido"]:
+        
+        apellido = request.GET["apellido"]
+        
+        # nombres = Integrante.objects.filter(apellido__icontains=apellido)
+        nombres = Integrante.objects.filter(apellido=apellido)
+               
+        respuesta = f"ESTOY BUSCANDO A: {request.GET['apellido']}"
+        
+        return render(request, "AppClan/resultadoBusquedaIntegrante.html",{"nombres":nombres, "apellido":apellido})
+         
+    else: 
+        
+        respuesta = "Pasame el apellido, porfa"     
+    
+    return HttpResponse(respuesta)
+
 
 def vehiculoFormulario(request):
 
@@ -63,13 +94,16 @@ def vehiculoFormulario(request):
         
             vehiculo.save() # Este save es el que guarda en la base de datos.
         
-        return render(request, 'AppClan/inicio.html')
+        return render(request, 'AppClan/cargaVehiculoExitosa.html')
 
     else:
 
         miFormulario = VehiculoFormulario()
 
     return render(request, 'AppClan/vehiculoFormulario.html', {"miFormulario":miFormulario})
+
+def cargaVehiculoExitosa(request):
+    return render(request, "AppClan/cargaVehiculoExitosa.html")
 
 def comentarioFormulario(request):
 
@@ -89,11 +123,14 @@ def comentarioFormulario(request):
         
             comentario.save() # Este save es el que guarda en la base de datos.
         
-        return render(request, 'AppClan/inicio.html')
+        return render(request, 'AppClan/cargaComentarioExitosa.html')
 
     else:
 
         miFormulario = ComentarioFormulario()
 
     return render(request, 'AppClan/comentarioFormulario.html', {"miFormulario":miFormulario})
+
+def cargaComentarioExitosa(request):
+    return render(request, "AppClan/cargaComentarioExitosa.html")
 

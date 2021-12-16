@@ -1,0 +1,29 @@
+{% extends "AppClan/padre.html" %}
+
+
+{% load static %}
+
+        {% block contenido2 %}
+            <h1 class="mb-1">Búsqueda de integrantes</h1>
+        {% endblock %}
+
+
+        {% block contenido %}
+
+        <div align = "center">
+
+            <h1>Esta es la página para hacer búsqueda de integrantes por apellido.</h1>
+            <br>
+            <p>Ingresá el apellido que querés buscar:</p>
+
+            <form action="/AppClan/buscarIntegrante" method="GET">
+
+                <input type="text" name="apellido" id="apellido">
+
+                <input type="submit" value="Buscar">
+
+            </form>
+
+        </div>
+
+        {% endblock %}

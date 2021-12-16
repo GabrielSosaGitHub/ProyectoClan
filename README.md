@@ -2,7 +2,7 @@
 
 Esta es una web donde podrás visualizar a los miembros de mi clan, unirte al mismo, registrar vehículos y dejar comentarios.
 
-## Breve des descripción
+## Breve descripción
 
 Dentro del sitio vas a poder:
 

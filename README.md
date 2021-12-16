@@ -12,10 +12,13 @@ Dentro del sitio vas a poder:
 
 ## Screenshots
 
+Vista del inicio:
 ![Screenshot del inicio:](/Screenshots/Screenshot-001.png)
 
+Vista de la barra de navegación:
 ![Screenshot de la barra de navegación:](/Screenshots/Screenshot-002.png)
 
+Vista de búsqueda de integrantes:
 ![Screenshot de búsqueda de integrantes:](/Screenshots/Screenshot-003.png)
 
 

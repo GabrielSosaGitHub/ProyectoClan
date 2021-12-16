@@ -1,0 +1,36 @@
+{% extends "AppClan/padre.html" %}
+
+{% load static %}
+
+        {% block contenido2 %}
+
+            <h1 class="mb-1">Búsqueda de vehículo</h1>
+
+        {% endblock %}
+
+        {% block contenido %}
+
+            {% if nombres %}
+
+                <h2>Hemos encontrado los siguientes vehículos para la marca '{{nombres.0.marca}}':</h2>
+                <br>
+
+                <ul>
+                {% for nombre in nombres %}
+
+                <h5>- {{nombre.nombre}}</h5>
+
+                {% endfor %}
+                </ul>
+                
+                <br>
+                <p>¿Querés realizar una nueva búsqueda? Clic <a href = 'busquedaVehiculo'> acá </a>. </p>
+
+            {% else %}
+       
+                <h2>Lo sentimos  :( <br>No hemos encontrado coincidencias en nuestra base de datos para la marca buscada.</h2>
+                <p>¿Querés hacer otra búsqueda? Clic <a href = 'busquedaVehiculo'> acá </a>.</p>
+
+            {% endif %}
+         
+        {% endblock %}

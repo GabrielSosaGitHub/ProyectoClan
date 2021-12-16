@@ -1,0 +1,29 @@
+{% extends "AppClan/padre.html" %}
+
+{% load static %}
+
+        {% block contenido2 %}
+
+            <h1 class="mb-1">Búsqueda de vehículos</h1>
+
+        {% endblock %}
+
+        {% block contenido %}
+
+        <div align = "center">
+
+            <h1>Esta es la página para hacer búsqueda de vehículos por marca.</h1>
+            <br>
+            <p>Ingresá la marca que querés buscar:</p>
+
+            <form action="/AppClan/buscarVehiculo" method="GET">
+
+                <input type="text" name="marca" id="marca">
+
+                <input type="submit" value="Buscar">
+
+            </form>
+
+        </div>
+
+        {% endblock %}

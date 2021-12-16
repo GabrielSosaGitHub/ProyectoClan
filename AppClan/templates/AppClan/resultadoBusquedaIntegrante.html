@@ -1,12 +1,12 @@
 {% extends "AppClan/padre.html" %}
 
-
 {% load static %}
 
         {% block contenido2 %}
-            <h1 class="mb-1">Búsqueda de integrante</h1>
-        {% endblock %}
 
+            <h1 class="mb-1">Búsqueda de integrante</h1>
+
+        {% endblock %}
 
         {% block contenido %}
 
@@ -23,6 +23,9 @@
                 {% endfor %}
                 </ul>
 
+                <br>
+                <p>¿Querés realizar una nueva búsqueda? Clic <a href = 'busquedaIntegrante'> acá </a>. </p>
+
             {% else %}
        
                 <h2>Lo sentimos  :( <br>No hemos encontrado coincidencias en nuestra base de datos para el apellido buscado.</h2>
@@ -30,5 +33,4 @@
 
             {% endif %}
          
-
         {% endblock %}

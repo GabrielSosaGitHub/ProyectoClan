@@ -5,17 +5,16 @@ from .forms import *
 from .models import *
 
 # Create your views here.
+
+# Vista inicio.
 def inicio(request):
     return render(request, "AppClan/inicio.html")
 
+
+########################################################################
+# Vistas relacionadas a los integrantes.
 def integrantes(request):
     return render(request, "AppClan/integrantes.html")
-
-def vehiculos(request):
-    return render(request, "AppClan/vehiculos.html")
-
-def comentarios(request):
-    return render(request, "AppClan/comentarios.html")
 
 def integranteFormulario(request):
 
@@ -62,9 +61,9 @@ def buscarIntegrante(request):
         apellido = request.GET["apellido"]
         
         # nombres = Integrante.objects.filter(apellido__icontains=apellido)
-        nombres = Integrante.objects.filter(apellido=apellido)
+        nombres = Integrante.objects.filter(apellido__iexact=apellido) # Case insensitive.
                
-        respuesta = f"ESTOY BUSCANDO A: {request.GET['apellido']}"
+        respuesta = f"Buscando: {request.GET['apellido']}"
         
         return render(request, "AppClan/resultadoBusquedaIntegrante.html",{"nombres":nombres, "apellido":apellido})
          
@@ -74,6 +73,11 @@ def buscarIntegrante(request):
     
     return HttpResponse(respuesta)
 
+
+########################################################################
+# Vistas relacionadas a los vehículos.
+def vehiculos(request):
+    return render(request, "AppClan/vehiculos.html")
 
 def vehiculoFormulario(request):
 
@@ -104,6 +108,38 @@ def vehiculoFormulario(request):
 
 def cargaVehiculoExitosa(request):
     return render(request, "AppClan/cargaVehiculoExitosa.html")
+
+def busquedaVehiculo(request):
+
+    return render(request, 'AppClan/busquedaVehiculo.html')
+
+def resultadoBusquedaVehiculo(request):
+    
+    return render(request, "AppClan/resultadoBusquedaVehiculo.html")
+
+def buscarVehiculo(request):
+      
+    if request.GET["marca"]:
+        
+        marca = request.GET["marca"]
+        
+        nombres = Vehiculo.objects.filter(marca__iexact=marca)
+               
+        respuesta = f"Buscando: {request.GET['marca']}"
+        
+        return render(request, "AppClan/resultadoBusquedaVehiculo.html",{"nombres":nombres, "marca":marca})
+         
+    else: 
+        
+        respuesta = "Pasame la marca, porfa"     
+    
+    return HttpResponse(respuesta)
+
+
+########################################################################
+# Vistas relacionadas a los comentarios.
+def comentarios(request):
+    return render(request, "AppClan/comentarios.html")
 
 def comentarioFormulario(request):
 
